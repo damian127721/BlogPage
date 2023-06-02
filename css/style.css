@@ -1,0 +1,94 @@
+body, body::before, body::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --MAIN-COLOR: rgb(232, 222, 222);
+    --MAIN-BGCOLOR: rgb(34, 34, 47);
+    --PAGE-COLOR: rgb(58, 77, 146);
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    color: var(--MAIN-COLOR);
+    background-color: var(--MAIN-BGCOLOR);
+}
+
+.header {
+    background-image: radial-gradient(ellipse at top ,var(--PAGE-COLOR) 10%, var(--MAIN-BGCOLOR) 75%);
+    height: 150px;
+    position: relative;
+    display: grid;
+    place-content: center;
+    
+}
+
+.header__h1 {
+    text-align: center;
+    
+}
+
+.header__signup__button {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    right: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: var(--PAGE-COLOR);
+}
+
+.header__signup__button:hover {
+    opacity: 0.7;
+}
+
+.blog-posts {
+    margin: 50px 50px 0 50px;
+    display: flex;
+}
+
+main {
+    position: relative;
+}
+
+.register-form {
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    z-index: 1;
+    max-width: 400px;
+    width: 50%;
+    height: 30%;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.register-form form {
+    margin: 0;
+    padding: 0;
+}
+
+.register-form__input {
+    margin-top: 20px;
+    
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.register-form__cross {
+    cursor: pointer;
+    transform: rotate(45deg);
+    font-size: 25px;
+    color: black;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
