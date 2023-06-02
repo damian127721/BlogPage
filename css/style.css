@@ -18,7 +18,7 @@ body {
 }
 
 .header {
-    background-image: radial-gradient(ellipse at top ,var(--PAGE-COLOR) 10%, var(--MAIN-BGCOLOR) 75%);
+    background-image: radial-gradient(ellipse at top ,var(--PAGE-COLOR) 10%, var(--MAIN-BGCOLOR) 70%);
     height: 150px;
     position: relative;
     display: grid;
@@ -61,7 +61,8 @@ main {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
+    border: 5px solid white;
+    background-color: var(--MAIN-BGCOLOR);
     z-index: 1;
     max-width: 400px;
     width: 50%;
@@ -70,24 +71,39 @@ main {
     border-radius: 10px;
 }
 
+.register-form__h2 {
+    color: white;
+    text-align: center;
+}
+
 .register-form form {
-    margin: 0;
-    padding: 0;
+    width: 100%;
 }
 
 .register-form__input {
     margin-top: 20px;
     
+    box-sizing: border-box;
+    display: block;
     width: 100%;
     border-radius: 10px;
     padding: 10px;
+}
+
+.register-form__button {
+    min-width: 50px;
+    height: 30px;
+    float: right;
+    margin-top: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
 }
 
 .register-form__cross {
     cursor: pointer;
     transform: rotate(45deg);
     font-size: 25px;
-    color: black;
+    color: white;
     position: absolute;
     top: 15px;
     right: 15px;
