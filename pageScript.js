@@ -4,8 +4,10 @@ const logFormCross = document.querySelector(".register-form__cross")
 
 signButton.addEventListener("click", function() {
     logForm.style.display = "block"
+    logForm.style.width = "100%"
 })
 
 logFormCross.addEventListener("click", function() {
     logForm.style.display = "none"
+    
 })

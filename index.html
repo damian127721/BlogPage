@@ -22,7 +22,7 @@
     <main>
         <div class="register-form" id="register-form">
             <h2 class="register-form__h2">Register form</h2>
-            <div class="register-form__cross">╋</div>
+            <div class="register-form__cross">&times;</div>
             <form action="">
                 <input class="register-form__input" type="email" placeholder="Email">
                 <input class="register-form__input" type="password" placeholder="Password">
@@ -30,10 +30,15 @@
             </form>
         </div>
         <div class="blog-posts">
+            <div class="blog-posts__add">
+                <textarea oninput="this.style.height = '' ;this.style.height = this.scrollHeight + 'px'" class="blog-posts__add__textarea" cols="10" rows="5"> </textarea>
+                <div class="blog-posts__add__plus">&times;</div>
+            </div>
             <article class="blog-posts__post">
                 <p class="blog-posts__post__p"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt libero sapiente adipisci? Voluptatibus necessitatibus iste animi architecto, ad fuga earum ipsa, provident sit rem aut! Nesciunt id hic repellat tenetur?</p>
             </article>
         </div>
+       
     </main>
     <footer>
 
