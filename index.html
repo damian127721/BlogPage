@@ -29,11 +29,14 @@
                 <button class="register-form__button" type="submit">Log in</button>
             </form>
         </div>
-        <div id="blog-posts">
-            <div class="blog-posts__add">
-                <textarea oninput="this.style.height = '' ;this.style.height = this.scrollHeight + 'px'" id="blog-posts__add__textarea" cols="10" rows="5"> </textarea>
-                <div id="blog-posts__add__plus" onclick="addPostBtn()">&times;</div>
+        <div class="center">
+            <div class="add-post">
+            <textarea oninput="this.style.height = '' ;this.style.height = this.scrollHeight + 'px'" id="add-post__textarea" cols="10" rows="5"> </textarea>
+            <div id="add-post__plus" onclick="addPostBtn()">&times;</div>
             </div>
+        </div>
+        <div id="blog-posts">
+            
             <article class="blog-posts__post">
                 <p class="blog-posts__post__p"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt libero sapiente adipisci? Voluptatibus necessitatibus iste animi architecto, ad fuga earum ipsa, provident sit rem aut! Nesciunt id hic repellat tenetur?</p>
             </article>
