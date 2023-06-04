@@ -18,6 +18,7 @@ const database = getDatabase(app)
 const postsData = ref(database, "postsData")
 
 let lastTextEntries = [] 
+let delIdArr = []
 
 onValue(postsData, function(snapshot) {
     if (!snapshot.exists()){ 
@@ -28,8 +29,19 @@ onValue(postsData, function(snapshot) {
 
     blogPosts.innerHTML = ""
     for (let i = 0; i < lastTextEntries.length; ++i) {
-        console.log(lastTextEntries[i][0])
         newPost(lastTextEntries[i][1], lastTextEntries[i][0])
+    }
+
+    for(let i = 0; i < delIdArr.length; ++i) {
+    if (delIdArr[i] != 0){
+    document.getElementById(delIdArr[i]).addEventListener("click", function () {
+        let refEx = ref(database, `postsData/${delIdArr[i]}`)
+        console.log(`Removed element with id ${delIdArr[i]}`)
+        delIdArr[i] = 0
+        /* delIdArr.splice(i, 1) */
+        remove(refEx)
+        
+    }) }
     }
 })
 
@@ -51,14 +63,13 @@ addPostBtn.addEventListener("click", function() {
 
 function newPost(text, id) {
     
-    blogPosts.innerHTML += `<article class="blog-posts__post" id="${id}">
+    blogPosts.innerHTML += `<article class="blog-posts__post">
     <p class="blog-posts__post__p">Author:  </p> 
     <p class="blog-posts__post__p"> ${text} </p>
-    <div onclick="removeEl(${id})" class="blog-posts__post__delete">&times; </div>
+    <div id="${id}" class="blog-posts__post__delete">&times; </div>
 </article> `
+    delIdArr.push(id)
+    
     
 }
 
-function removeEl(id) {
-    console.log(`Removed element with id ${id}`)
-}
