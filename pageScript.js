@@ -21,6 +21,7 @@ let lastTextEntries = []
 let delIdArr = []
 
 onValue(postsData, function(snapshot) {
+    delIdArr = []
     if (!snapshot.exists()){ 
         blogPosts.innerHTML = ""
         return;
