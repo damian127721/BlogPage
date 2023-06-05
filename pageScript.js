@@ -14,13 +14,19 @@ const passwordInput = document.getElementById("password")
 const loginSubmitBtn = document.getElementById("register-form__button")
 
 const appSettings = {
-    databaseURL: "https://blogpage-37761-default-rtdb.europe-west1.firebasedatabase.app/"
+    apiKey: "AIzaSyAynj2drTUQnxmO8qQG1l8642xlYuwqZWc",
+    authDomain: "blogpage-37761.firebaseapp.com",
+    databaseURL: "https://blogpage-37761-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "blogpage-37761",
+    storageBucket: "blogpage-37761.appspot.com",
+    messagingSenderId: "827658126289",
+    appId: "1:827658126289:web:80866e8ef83e9d9fbd56f0"
 }
 const app = initializeApp(appSettings)
 console.log(app)
 const database = getDatabase(app)
 
-// firebase.initializeApp(appSettings) potřebuju firebase app, a npm balíček
+firebase.initializeApp(appSettings) 
 
 const postsData = ref(database, "postsData")
 const loginData = ref(database, "loginData")
