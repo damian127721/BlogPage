@@ -1,25 +1,41 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"
-import { getDatabase, ref, push, remove, onValue, get } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"
+import { getDatabase, ref, push, remove, onValue, get} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"
 
+// ## variables
 const signButton = document.querySelector(".header__signup__button")
 const logForm = document.getElementById("register-form")
 const logFormCross = document.querySelector(".register-form__cross") 
 const addPostText = document.getElementById("add-post__textarea")
 const blogPosts = document.getElementById("blog-posts")
 const addPostBtn = document.getElementById("add-post__plus")
+// # login vars
+const emailInput = document.getElementById("email")
+const passwordInput = document.getElementById("password")
+const loginSubmitBtn = document.getElementById("register-form__button")
 
 const appSettings = {
     databaseURL: "https://blogpage-37761-default-rtdb.europe-west1.firebasedatabase.app/"
 }
-
 const app = initializeApp(appSettings)
 console.log(app)
 const database = getDatabase(app)
-const postsData = ref(database, "postsData")
 
+// firebase.initializeApp(appSettings) potřebuju firebase app, a npm balíček
+
+const postsData = ref(database, "postsData")
+const loginData = ref(database, "loginData")
+
+let postAuthor = ""
 let lastTextEntries = [] 
 let delIdArr = []
+let account = {
+    emailVal: "",
+    passwordVal: ""
+}
 
+
+
+// ## posts code
 onValue(postsData, function(snapshot) {
     delIdArr = []
     if (!snapshot.exists()){ 
@@ -65,7 +81,7 @@ addPostBtn.addEventListener("click", function() {
 function newPost(text, id) {
     
     blogPosts.innerHTML += `<article class="blog-posts__post">
-    <p class="blog-posts__post__p">Author:  </p> 
+    <p class="blog-posts__post__p">Author:  ${postAuthor}</p> 
     <p class="blog-posts__post__p"> ${text} </p>
     <div id="${id}" class="blog-posts__post__delete">&times; </div>
 </article> `
@@ -74,3 +90,20 @@ function newPost(text, id) {
     
 }
 
+// ## login code 
+loginSubmitBtn.addEventListener("click", function() {
+    account.emailVal = emailInput.value
+    account.passwordVal = passwordInput.value
+
+    emailInput.value = ""
+    passwordInput.value = ""
+    console.log(account.emailVal + " " + account.passwordVal)
+
+    push(loginData, account)
+
+    getLoginData()
+})
+
+function getLoginData() {
+
+}
